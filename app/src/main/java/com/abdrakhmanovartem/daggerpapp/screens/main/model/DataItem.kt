@@ -1,4 +1,4 @@
-package com.abdrakhmanovartem.daggerpapp.screens.model
+package com.abdrakhmanovartem.daggerpapp.screens.main.model
 
 import com.google.gson.annotations.SerializedName
 

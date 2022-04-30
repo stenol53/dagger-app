@@ -1,6 +1,6 @@
 package com.abdrakhmanovartem.daggerpapp.api
 
-import com.abdrakhmanovartem.daggerpapp.screens.model.DataItem
+import com.abdrakhmanovartem.daggerpapp.screens.main.model.DataItem
 import retrofit2.Response
 import retrofit2.http.GET
 

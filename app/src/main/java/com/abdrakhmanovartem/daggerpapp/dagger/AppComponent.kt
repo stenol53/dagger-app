@@ -14,6 +14,9 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
 
+    val apiService: ApiService
+    val resourcesProvider: ResourcesProvider
+
     fun inject(app: App)
 
     @Component.Builder

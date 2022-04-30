@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class AppModule {
+object AppModule {
 
     @Provides
     fun provideResources(context: Context): ResourcesProvider = ResourcesProvider.Impl(context)

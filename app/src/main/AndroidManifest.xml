@@ -11,7 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DaggerpApp">
         <activity
-            android:name=".screens.MainActivity"
+            android:name=".screens.details.DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

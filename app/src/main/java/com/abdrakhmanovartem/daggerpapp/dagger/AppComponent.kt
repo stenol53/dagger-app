@@ -1,53 +1,31 @@
 package com.abdrakhmanovartem.daggerpapp.dagger
 
-import android.content.Context
+import com.abdrakhmanovartem.core_api.dagger.ContextProvider
 import com.abdrakhmanovartem.daggerpapp.App
-import com.abdrakhmanovartem.daggerpapp.ResourcesProvider
 import com.abdrakhmanovartem.daggerpapp.api.ApiService
-import dagger.BindsInstance
+import com.abdrakhmanovartem.network_api.dagger.NetworkProvider
 import dagger.Component
 import javax.inject.Singleton
 
 @Component(
-    modules = [AppModule::class, NetworkModule::class]
+    modules = [AppModule::class],
+    dependencies = [ContextProvider::class, NetworkProvider::class]
 )
 @Singleton
-interface AppComponent {
+interface AppComponent : ContextProvider, NetworkProvider {
 
     val apiService: ApiService
-    val resourcesProvider: ResourcesProvider
 
     fun inject(app: App)
 
     @Component.Builder
     interface Builder {
 
-        @BindsInstance
-        fun context(context: Context): Builder
+        fun contextProvider(provider: ContextProvider): Builder
+
+        fun networkProvider(provider: NetworkProvider): Builder
 
         fun build(): AppComponent
     }
-
-    companion object {
-        fun create(context: Context): AppComponent {
-            return DaggerAppComponent.builder()
-                .context(context)
-                .build()
-        }
-    }
-
-//    @Component.Factory
-//    interface Factory {
-//        fun create(
-//            @BindsInstance context: Context
-//        ): AppComponent
-//    }
-//
-//    companion object {
-//        fun create(context: Context): AppComponent {
-//            return DaggerAppComponent.factory()
-//                .create(context)
-//        }
-//    }
 
 }

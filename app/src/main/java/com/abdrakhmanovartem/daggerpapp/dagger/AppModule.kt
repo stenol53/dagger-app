@@ -1,14 +1,13 @@
 package com.abdrakhmanovartem.daggerpapp.dagger
 
-import android.content.Context
-import com.abdrakhmanovartem.daggerpapp.ResourcesProvider
+import com.abdrakhmanovartem.daggerpapp.api.ApiService
 import dagger.Module
 import dagger.Provides
+import retrofit2.Retrofit
 
 @Module
 object AppModule {
 
     @Provides
-    fun provideResources(context: Context): ResourcesProvider = ResourcesProvider.Impl(context)
-
+    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 }

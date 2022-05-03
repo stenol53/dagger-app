@@ -1,6 +1,5 @@
-package com.abdrakhmanovartem.daggerpapp.dagger
+package com.abdrakhmanovartem.network_impl.dagger
 
-import com.abdrakhmanovartem.daggerpapp.api.ApiService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -12,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-object NetworkModule {
+internal object NetworkModule {
 
     @Provides
     @Singleton
@@ -38,8 +37,4 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
-
-    @Provides
-    @Singleton
-    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 }

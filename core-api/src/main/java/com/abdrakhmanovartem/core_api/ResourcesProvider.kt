@@ -1,4 +1,4 @@
-package com.abdrakhmanovartem.daggerpapp
+package com.abdrakhmanovartem.core_api
 
 import android.content.Context
 import android.graphics.drawable.Drawable

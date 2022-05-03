@@ -2,11 +2,12 @@ package com.abdrakhmanovartem.daggerpapp
 
 import android.app.Application
 import android.util.Log
+import com.abdrakhmanovartem.core_api.App
 import com.abdrakhmanovartem.daggerpapp.dagger.ComponentInjector
 import retrofit2.Retrofit
 import javax.inject.Inject
 
-class App : Application() {
+class App : Application(), App {
 
     private lateinit var componentInjector: ComponentInjector
 

@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DaggerpApp"
 include ':app'
+include ':network-api'
+include ':network-impl'
+include ':core-api'
+include ':core-impl'

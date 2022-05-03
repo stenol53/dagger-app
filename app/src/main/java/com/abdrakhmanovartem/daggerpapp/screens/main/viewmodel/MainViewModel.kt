@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.abdrakhmanovartem.daggerpapp.ResourcesProvider
+import com.abdrakhmanovartem.core_api.ResourcesProvider
 import com.abdrakhmanovartem.daggerpapp.screens.main.model.DataItem
 import com.abdrakhmanovartem.daggerpapp.screens.main.repository.MainRepository
 import com.abdrakhmanovartem.daggerpapp.screens.main.router.MainRouter

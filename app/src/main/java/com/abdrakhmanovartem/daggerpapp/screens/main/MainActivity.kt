@@ -5,15 +5,13 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.abdrakhmanovartem.daggerpapp.R
 import com.abdrakhmanovartem.daggerpapp.dagger.ComponentInjector
-import com.abdrakhmanovartem.daggerpapp.screens.main.dagger.DaggerMainComponent
 import com.abdrakhmanovartem.daggerpapp.screens.main.dagger.MainComponent
 import com.abdrakhmanovartem.daggerpapp.screens.main.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val component: MainComponent by lazy {
-        MainComponent.create(this, ComponentInjector.get(this).appComponent)
-    }
+    private val component: MainComponent =
+        ComponentInjector.get(this).getMainComponent(this)
 
     private val viewModel: MainViewModel by viewModels { component.viewModelFactory }
 
@@ -30,5 +28,10 @@ class MainActivity : AppCompatActivity() {
         viewModel.itemsLiveData.observe(this) {
             // ...
         }
+    }
+
+    override fun onDestroy() {
+        ComponentInjector.get(this).clearMainComponent()
+        super.onDestroy()
     }
 }

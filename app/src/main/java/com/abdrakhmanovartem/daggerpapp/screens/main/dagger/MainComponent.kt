@@ -7,28 +7,26 @@ import com.abdrakhmanovartem.daggerpapp.dagger.ViewModelFactoryModule
 import com.abdrakhmanovartem.daggerpapp.dagger.common.ActivityScope
 import dagger.BindsInstance
 import dagger.Component
+import dagger.Subcomponent
 
-@Component(
-    modules = [MainModule::class, ViewModelFactoryModule::class],
-    dependencies = [AppComponent::class]
+@Subcomponent(
+    modules = [MainModule::class, ViewModelFactoryModule::class]
 )
 @ActivityScope
 interface MainComponent {
 
     val viewModelFactory: ViewModelProvider.Factory
 
-    @Component.Factory
+    @Subcomponent.Factory
     interface Factory {
         fun newInstance(
-            @BindsInstance activity: AppCompatActivity,
-            appComponent: AppComponent
+            @BindsInstance activity: AppCompatActivity
         ): MainComponent
     }
 
-    companion object {
-        fun create(
-            activity: AppCompatActivity,
-            appComponent: AppComponent
-        ) = DaggerMainComponent.factory().newInstance(activity, appComponent)
-    }
+//    companion object {
+//        fun create(
+//            activity: AppCompatActivity
+//        ) = DaggerMainComponent.factory().newInstance(activity)
+//    }
 }

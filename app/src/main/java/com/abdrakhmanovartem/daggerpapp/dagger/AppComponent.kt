@@ -2,8 +2,7 @@ package com.abdrakhmanovartem.daggerpapp.dagger
 
 import android.content.Context
 import com.abdrakhmanovartem.daggerpapp.App
-import com.abdrakhmanovartem.daggerpapp.ResourcesProvider
-import com.abdrakhmanovartem.daggerpapp.api.ApiService
+import com.abdrakhmanovartem.daggerpapp.screens.main.dagger.MainComponent
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -14,10 +13,10 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
 
-    val apiService: ApiService
-    val resourcesProvider: ResourcesProvider
-
     fun inject(app: App)
+
+    // Subcomponents
+    fun plusMainComponent(): MainComponent.Factory
 
     @Component.Builder
     interface Builder {
